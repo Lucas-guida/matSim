@@ -1,6 +1,6 @@
 function recInit(obj)
 
-    l = 0.5;
+    l = 0.4;
     w = l;
     h = 0.4;
 
@@ -11,9 +11,9 @@ function recInit(obj)
         0 0 0; l 0 0; l 0 h; 0 0 h;
         0 0 h; l 0 h; l l h; 0 l h];
 
-    v(:,1) = v(:,1) + obj.position(1) - l/2;
-    v(:,2) = v(:,2) + obj.position(2) - l/2;
-    v(:,3) = v(:,3) + obj.position(3);
+    v(:,1) = v(:,1) + obj.x - l/2;
+    v(:,2) = v(:,2) + obj.y - l/2;
+    v(:,3) = v(:,3) + obj.z;
 
     f = [1 2 3 4;
         5 6 7 8;
