@@ -40,3 +40,7 @@ Stores the graphical data of the 3D robot object.
 
 ## Robot.m 
 Robot class that stores contains all the methods to instanciate and run the robot.
+
+
+# Sample of Simulation
+![](./public/simRunning.PNG)
