@@ -34,3 +34,9 @@ To move the robot you call the translate function. This takes a robot instance a
 ```
 Robot1 = translate(Robot1, [1 0 1 0]);
 ```
+
+## recInit.m
+Stores the graphical data of the 3D robot object.
+
+## Robot.m 
+Robot class that stores contains all the methods to instanciate and run the robot.
