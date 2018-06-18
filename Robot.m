@@ -41,7 +41,7 @@ classdef Robot < Singleton
     % NOTE: The below method was commented out to allow for multiple
     % instances
     methods(Static)
-        % instanciates a Robot object
+        % instanciates a RSobot object
         function obj = instance(pos,color,ori)
             %             persistent uniqueInstance
             %             if isempty(uniqueInstance) || ~isvalid(uniqueInstance)

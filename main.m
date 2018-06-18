@@ -7,11 +7,13 @@ color1 = 'Cyan';
 
 pos2 = [1,2,0];
 or2 = 0;
-color2 = 'Blue';
+color2 = 'magenta';
 
 % initalizing figure
 axes('xlim',[0 2],'ylim',[0 4],'zlim',[0 1.5]);
 view(3);
+set(gca,'FontSize',14);
+camlight;
 grid on;
 axis equal;
 hold on;
