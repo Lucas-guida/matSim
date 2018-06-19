@@ -1,6 +1,6 @@
-function obj = make_arm_base(obj)
-    Radius = 0.1;
-    Height = 0.05;
+function obj = make_arm_L1(obj)
+    Radius = 0.05;
+    Height = 0.3;
     SideCount = 20;
 
     % Vertices
@@ -25,12 +25,6 @@ function obj = make_arm_base(obj)
         PatchData1_Z(:,i_pat) = VertexData(Index_Patch1(i_pat,:),3);
     end
 
-    % Draw side patches
-    obj.armBV.sides.x =  PatchData1_X + 0.4/2;
-    obj.armBV.sides.y =  PatchData1_Y + 0.4/3;
-    obj.armBV.sides.z =  PatchData1_Z + 0.4;
-    obj.armBp.sides = patch(obj.armBV.sides.x,obj.armBV.sides.y,obj.armBV.sides.z,obj.color);
-
     % Bottom Patches
     Index_Patch2(1,:) = [1:n_side];
     Index_Patch2(2,:) = [n_side+1:2*n_side];
@@ -42,11 +36,18 @@ function obj = make_arm_base(obj)
         PatchData2_Y(:,i_pat) = VertexData(Index_Patch2(i_pat,:),2);
         PatchData2_Z(:,i_pat) = VertexData(Index_Patch2(i_pat,:),3);
     end
-
-    % Draw bottom patches
-    obj.armBV.topbottom.x =  PatchData2_X + 0.4/2;
-    obj.armBV.topbottom.y =  PatchData2_Y + 0.4/3;
-    obj.armBV.topbottom.z =  PatchData2_Z + 0.4;
     
-    obj.armBp.topbottom = patch(obj.armBV.topbottom.x,obj.armBV.topbottom.y,obj.armBV.topbottom.z,obj.color);
+
+    % Draw side patches
+    obj.armL1V.sides.x =  PatchData1_X + 0.4/2;
+    obj.armL1V.sides.y =  PatchData1_Y + 0.4/3;
+    obj.armL1V.sides.z =  PatchData1_Z + 0.5;
+    obj.armL1p.sides = patch(obj.armL1V.sides.x,obj.armL1V.sides.y,obj.armL1V.sides.z,obj.color);
+    
+    % Draw bottom patches
+    obj.armL1V.topbottom.x =  PatchData2_X + 0.4/2;
+    obj.armL1V.topbottom.y =  PatchData2_Y + 0.4/3;
+    obj.armL1V.topbottom.z =  PatchData2_Z + 0.5;
+    
+    obj.armL1p.topbottom = patch(obj.armL1V.topbottom.x,obj.armL1V.topbottom.y,obj.armL1V.topbottom.z,obj.color);
 end

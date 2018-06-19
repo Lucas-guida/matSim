@@ -13,7 +13,7 @@ color2 = 'magenta';
 axes('xlim',[0 2],'ylim',[0 4],'zlim',[0 1.5]);
 view(3);
 set(gca,'FontSize',14);
-camlight;
+% camlight;
 grid on;
 axis equal;
 hold on;
@@ -24,18 +24,16 @@ zlabel('z');
 % creating robot object
 Robot1 = Robot.instance(pos1, color1, or1)
 
-Robot2 = Robot.instance(pos2, color2, or2)
-
 pause(1)
 
 % move the robot forward by 1 meter
-Robot1 = rotate(Robot1, 45);
-Robot1
-pause(1)
-Robot1 = translate(Robot1, [1 0 1 0]);
-pause(1)
-Robot1 = rotate(Robot1, -80);
-pause(1)
-Robot1 = translate(Robot1, [1 0 0 1]);
-pause(1)
-Robot1 = translate(Robot1, [0 0 1 0]);
+% Robot1 = rotate(Robot1, 45);
+% Robot1
+% pause(1)
+% Robot1 = translate(Robot1, [1 0 1 0]);
+% pause(1)
+% Robot1 = rotate(Robot1, -80);
+% pause(1)
+% Robot1 = translate(Robot1, [1 0 0 1]);
+% pause(1)
+% Robot1 = translate(Robot1, [0 0 1 0]);

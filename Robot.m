@@ -1,9 +1,31 @@
 classdef Robot < Singleton
     properties
         %The data for the model of the robot
-        baseV = [];
+        baseV = struct('x',[],'y',[],'z',[]);      
         baseF = [];
         basep = [];
+        
+        %The data for the arm
+        armBV = struct('topbottom',struct('x',[],'y',[],'z',[]),'sides',struct('x',[],'y',[],'z',[]));      
+        armBF = [];
+        armBp = struct('topbottom',[],'sides',[]);
+        
+        
+        armJ1V = struct('topbottom',struct('x',[],'y',[],'z',[]),'sides',struct('x',[],'y',[],'z',[]));      
+        armJ1F = [];
+        armJ1p = struct('topbottom',[],'sides',[]);
+        
+        armL1V = struct('topbottom',struct('x',[],'y',[],'z',[]),'sides',struct('x',[],'y',[],'z',[]));      
+        armL1F = [];
+        armL1p = struct('topbottom',[],'sides',[]);
+        
+        armJ2V = struct('topbottom',struct('x',[],'y',[],'z',[]),'sides',struct('x',[],'y',[],'z',[]));      
+        armJ2F = [];
+        armJ2p = struct('topbottom',[],'sides',[]);
+        
+        armL2V = struct('topbottom',struct('x',[],'y',[],'z',[]),'sides',struct('x',[],'y',[],'z',[]));      
+        armL2F = [];
+        armL2p = struct('topbottom',[],'sides',[]);
         
         %Properties of the pose of the robot
         x=0;
@@ -30,7 +52,12 @@ classdef Robot < Singleton
         
         function initGraphics(obj)
             %set the properties of the figure being used
-            recInit(obj);
+            make_block(obj);
+            make_arm_base(obj);
+            make_arm_J1(obj);
+            make_arm_L1(obj);
+            make_arm_J2(obj);
+            make_arm_L2(obj);
         end
         
     end
@@ -132,18 +159,21 @@ classdef Robot < Singleton
                 if(obj.x < lbxg || obj.x > ubxg)
                     % move the robot in the x direction
                     obj.x = obj.x + sp*(normdx);
-                    obj.baseV(:,1) = obj.baseV(:,1) + sp*(normdx);
+                    obj.baseV.x = obj.baseV.x + sp*(normdx);
                 end
                 if(obj.y < lbyg || obj.y > ubyg)
                     % move the robot in the y direction
                     obj.y = obj.y + sp*(normdy);
-                    obj.baseV(:,2) = obj.baseV(:,2)+ sp*(normdy);
+                    obj.baseV.y = obj.baseV.y + sp*(normdy);
                 end
                 obj.y = round(obj.y * 10^5) / 10^5;
                 obj.x = round(obj.x * 10^5) / 10^5;
                 
                 % update figure
-                set(obj.basep,'Vertices',obj.baseV);
+                %set(obj.basep,'Vertices',obj.baseV);
+                set(obj.basep,'XData',obj.baseV.x);
+                set(obj.basep,'YData',obj.baseV.y);
+                set(obj.basep,'ZData',obj.baseV.z);
                 drawnow;
             end
         end
