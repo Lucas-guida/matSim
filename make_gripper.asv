@@ -1,6 +1,6 @@
 function obj = make_gripper(obj)
-    Lx = 0.02;
-    Ly = 0.1;
+    Lx = 0.05;
+    Ly = 0.05;
     Lz = 0.05;
 
     % Vertices
@@ -39,13 +39,13 @@ function obj = make_gripper(obj)
 
     % Draw patches
 
-    obj.gripV.left.x =  PatchData_XL - 0.05 + 0.2 -0.02;
-    obj.gripV.left.y =  PatchData_YL + 0.43;
-    obj.gripV.left.z =  PatchData_ZL + 0.775;
+    obj.gripV.left.x =  PatchData_XL;
+    obj.gripV.left.y =  PatchData_YL;
+    obj.gripV.left.z =  PatchData_ZL;
     obj.basep = patch(obj.gripV.left.x, obj.gripV.left.y, obj.gripV.left.z, obj.color);
 
-    obj.gripV.right.x =  PatchData_XL + 0.05 + 0.2;
-    obj.gripV.right.y =  PatchData_YL + 0.43;
-    obj.gripV.right.z =  PatchData_ZL + 0.775;
+    obj.gripV.right.x =  PatchData_XL;
+    obj.gripV.right.y =  PatchData_YL;
+    obj.gripV.right.z =  PatchData_ZL;
     obj.basep = patch(obj.gripV.right.x, obj.gripV.right.y, obj.gripV.right.z, obj.color);
 end

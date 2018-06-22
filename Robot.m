@@ -27,6 +27,10 @@ classdef Robot < Singleton
         armL2F = [];
         armL2p = struct('topbottom',[],'sides',[]);
         
+        gripV = struct('left',struct('x',[],'y',[],'z',[]),'right',struct('x',[],'y',[],'z',[]));      
+        gripF = struct('left',[],'right',[]);
+        gripp = struct('left',[],'right',[]);
+        
         %Properties of the pose of the robot
         x=0;
         y=0;
@@ -58,6 +62,7 @@ classdef Robot < Singleton
             make_arm_L1(obj);
             make_arm_J2(obj);
             make_arm_L2(obj);
+            make_gripper(obj);
         end
         
     end
